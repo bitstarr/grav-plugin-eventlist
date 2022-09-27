@@ -1,0 +1,12 @@
+{%- set object_context = object ?? {} -%}
+{%- set object_layout = object_context.layout ?? ('list-' ~ layout) -%}
+
+
+  <ul class="list">
+    {% for object in collection.filterBy({ published: true }) %}
+      <li>
+        {# {% render object layout: object_layout with object_context %} #}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+<h2 class="title">
+    {{ object.title }}
+    {% if object.expected %}
+        <small>({{ 'PLUGIN_EVENTLIST.EXPECTED_DATE'|t }})</small>
+    {% endif %}
+</h2>
+
+<p class="date">
+    {% if object.end %}
+        {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_SHORT'|t) }}–{{ object.end|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}
+    {% elseif object.time %}
+        {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}, {{ object.time }} {{ 'PLUGIN_EVENTLIST.O_CLOCK'|t }}
+    {% else %}
+        {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}
+    {% endif %}
+</p>
+
+{% if object.place %}
+<p class="place">
+    {{ object.place }}
+</p>
+{% endif %}

@@ -1,0 +1,31 @@
+PLUGIN_EVENTLIST:
+  EVENT: Event
+  EVENTS: Events
+  EVENTLIST: Event List
+  NEW_EVENT: New Event
+
+  STATUS: Status
+  TITLE: Title
+  DATE_START: Starting Date
+  DATE_END: Ending Date
+  TIME: Time
+  PLACE: Ort
+  HIGHLIGHT: Highlight
+  EXPECTED: unconfirmed/not yet fixed
+
+  LIST_PAGE_SLUG: Path to list view page
+
+  DETAILS: Details Page
+  DETAILS_ON: Enable Details Page
+  DETAILS_HELP: Should there be a page with more detailed information?
+
+  DESCRIPTION: Extensive Description
+  DOWNLOADS: Downloads
+  IMAGES: Images
+
+  FORMAT_COMPACT: d.m.Y
+  FORMAT_SHORT: d.m.
+  O_CLOCK: o'clock
+
+  EXPECTED_DATE: expected date
+  ALL_EVENTS: View all events

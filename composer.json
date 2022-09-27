@@ -1,0 +1,29 @@
+{
+  "name": "bitstarr/eventlist",
+  "type": "grav-plugin",
+  "description": "Flex Object based event listing",
+  "keywords": ["plugin"],
+  "homepage": "https://github.com/bitstarr/grav-plugin-eventlist",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sebastian Laube",
+      "email": "hello@sebastianlaube.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Plugin\\Eventlist\\": "classes/"
+    },
+    "classmap":  ["eventlist.php"]
+  },
+  "config": {
+    "platform": {
+      "php": "7.1.3"
+    }
+  }
+}

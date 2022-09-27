@@ -1,0 +1,223 @@
+title: PLUGIN_EVENTLIST.EVENTS
+description: PLUGIN_EVENTLIST.EVENTLIST
+type: flex-objects
+
+# Flex Configuration
+config:
+  # Administration Configuration
+  admin:
+    # Admin router (optional)
+    router:
+      path: '/events'
+
+    # Admin menu (optional)
+    menu:
+      list:
+        route: '/events'
+        title: PLUGIN_EVENTLIST.EVENTS
+        icon: fa-calendar-o
+        # Authorization to collection admin
+        authorize: ['admin.pages.list', 'admin.super']
+        # Priority -10 .. 10 (highest goes up)
+        priority: 2
+
+    # Admin template type / folder
+    template: default
+
+    # Permissions
+    permissions:
+      # Primary permissions
+      admin.events:
+        type: crudpl
+        label: PLUGIN_EVENTLIST.EVENTS
+
+    views:
+      # List view
+      list:
+        icon: fa-calendar-o
+        title: title
+        fields:
+          published:
+            field:
+              type: toggle
+              label: PLUGIN_EVENTLIST.STATUS
+            width: 8
+          start:
+            width: 12
+          end:
+            width: 12
+          title:
+            link: edit
+        options:
+          per_page: 30
+          order:
+            by: start
+            dir: desc
+
+    # List view
+    # list:
+    #   title: name
+    #   fields:
+    #     published:
+    #       field:
+    #         type: toggle
+    #         label: Status
+    #       width: 8
+    #     name:
+    #       link: edit
+    #     start:
+
+    # Edit View
+    edit:
+      icon: fa-calendar-o
+      title:
+        template: '{{ object.title ?? ''PLUGIN_EVENTLIST.NEW_EVENT'' }}'
+
+    # Preview View
+    preview:
+      enabled: false
+      route:
+        #template: '/plugins/flex-objects/directory:events'
+
+    # Data Export
+    export:
+      enabled: true
+      method: 'jsonSerialize'
+      formatter:
+        class: 'Grav\Framework\File\Formatter\YamlFormatter'
+      filename: 'events'
+
+  # Site Configuration
+  site:
+    templates:
+      collection:
+        # Lookup for the template layout files for collections of objects
+        paths:
+          - 'flex/{TYPE}/collection/{LAYOUT}{EXT}'
+      object:
+        # Lookup for the template layout files for objects
+        paths:
+          - 'flex/{TYPE}/object/{LAYOUT}{EXT}'
+      defaults:
+        # Default template {TYPE}; overridden by filename of this blueprint if template folder exists
+        type: events
+        # Default template {LAYOUT}; can be overridden in render calls (usually Twig in templates)
+        layout: default
+
+  # Data Configuration
+  data:
+    # Object class to be used, allowing custom methods for the object
+    object: 'Grav\Common\Flex\Types\Generic\GenericObject'
+    # Collection class to be used, allowing custom methods for the collections
+    collection: 'Grav\Plugin\Eventlist\Flex\Types\Events\EventsCollection'
+    # Index class to be used, works as a quick database-like lookup index
+    index: 'Grav\Common\Flex\Types\Generic\GenericIndex'
+    storage:
+      # Storage class, use single file storage (does not support images and assets)
+      # class: 'Grav\Framework\Flex\Storage\SimpleStorage'
+      # Storage class, use folder storage (does support images and assets)
+      class: 'Grav\Framework\Flex\Storage\FolderStorage'
+      options:
+        formatter:
+          # File formatter class, in this case the file is stored in markdown
+          class: 'Grav\Framework\File\Formatter\JsonFormatter'
+        # JSON file where all the objects will be stored
+        # folder: user-data://flex-objects/events.json
+        folder: user-data://flex-objects/events
+    search:
+      # Search options
+      options:
+        contains: 1
+      # Fields to be searched
+      fields:
+        - title
+    ordering:
+      start: DESC
+      timestamp: ASC
+
+form:
+  validation: loose
+
+  fields:
+    published:
+      type: toggle
+      label: PLUGIN_ADMIN.VISIBLE
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.YES
+        0: PLUGIN_ADMIN.NO
+      validate:
+        type: bool
+        required: true
+
+    title:
+      type: text
+      label: PLUGIN_EVENTLIST.TITLE
+      validate:
+        required: true
+
+    start:
+      type: date
+      label: PLUGIN_EVENTLIST.DATE_START
+      validate:
+        required: true
+
+    time:
+      type: time
+      label: PLUGIN_EVENTLIST.TIME
+
+    end:
+      type: date
+      label: PLUGIN_EVENTLIST.DATE_END
+
+    place:
+      type: text
+      label: PLUGIN_EVENTLIST.PLACE
+
+    important:
+      type: switch
+      label: PLUGIN_EVENTLIST.HIGHLIGHT
+
+    expected:
+      type: switch
+      label: PLUGIN_EVENTLIST.EXPECTED
+
+
+    details:
+      type: section
+      title: PLUGIN_EVENTLIST.DETAILS
+      underline: true
+      fields:
+        detailed:
+          type: toggle
+          label: PLUGIN_EVENTLIST.DETAILS_ON
+          help: PLUGIN_EVENTLIST.DETAILS_HELP
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.YES
+            0: PLUGIN_ADMIN.NO
+
+        description:
+          type: editor
+          label: PLUGIN_EVENTLIST.DESCRIPTION
+
+        downloads:
+          type: file
+          label: PLUGIN_EVENTLIST.DOWNLOADS
+          multiple: true
+          accept:
+          - application/pdf
+          - application/zip
+          - application/msword
+          - application/vnd.ms-excel
+          - application/vnd.oasis.opendocument*
+          - application/vnd.openxmlformats-officedocument*
+
+        images:
+          type: file
+          label: PLUGIN_EVENTLIST.IMAGES
+          multiple: true
+          accept:
+          - image/*

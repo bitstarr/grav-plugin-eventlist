@@ -1,0 +1,18 @@
+{%- set object_context = object ?? {} -%}
+{%- set object_layout = object_context.layout ?? ('list-' ~ layout) -%}
+{%- set eventlist_config = config.plugins.eventlist -%}
+
+
+<div class="events__widget">
+    {% for object in collection.filterBy({ published: true }) %}
+        {% render object layout: 'widget' %}
+    {% endfor %}
+
+    {% set query = { items: { '@page.page': eventlist_config.listpage } } %}
+    {% set listpage = grav.page.collection( query ) %}
+    <p>
+        <a href="{{ listpage|first.url }}">
+            {{ 'PLUGIN_EVENTLIST.ALL_EVENTS'|t }}
+        </a>
+    </p>
+</div>

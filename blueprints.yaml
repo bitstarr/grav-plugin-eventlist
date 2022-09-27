@@ -1,0 +1,35 @@
+name: Eventlist
+slug: eventlist
+type: plugin
+version: 0.1.0
+description: Flex Object based event listing
+icon: plug
+author:
+  name: Sebastian Laube
+  email: hello@sebastianlaube.de
+homepage: https://github.com/bitstarr/grav-plugin-eventlist
+demo: http://demo.yoursite.com
+keywords: grav, plugin, etc
+bugs: https://github.com/bitstarr/grav-plugin-eventlist/issues
+docs: https://github.com/bitstarr/grav-plugin-eventlist/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    listpage:
+      type: text
+      label: PLUGIN_EVENTLIST.LIST_PAGE_SLUG
