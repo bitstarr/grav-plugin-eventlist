@@ -32,7 +32,7 @@ To show the listing in frontend you need to create a page [`events.md`](examples
 ├── /03.catering
 ```
 
-> Note that the page folder for the event list could also be on the first hierarchical level. It's only important, that the namin of the page files is correct.
+> Note that the page folder for the event list could also be on the first hierarchical level. Only important is the correct naming of the page files.
 
 There are two important lines for the event details page frontmatter:
 
