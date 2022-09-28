@@ -48,7 +48,7 @@ The included template for the [event list](templates/events.html.twig) is very s
 
 To avoid writing static routes in config files, the path to the event details page will be the first child page of the page the list is rendered inside. To show event lists in other places, take guidance by the [widget template](templates/flex/events/collection/widget.html.twig).
 
-> This plugin provides translations, also for the form that is included in the page examples. Make sure to customize if the field don't match you requirements.
+> This plugin provides translations, also for the form that is included in the page examples. Make sure to customize if the fields don't match you requirements.
 
 ### Modular
 
