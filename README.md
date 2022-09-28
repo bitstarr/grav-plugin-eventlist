@@ -2,7 +2,7 @@
 
 The **Eventlist** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav).
 
-! Warning: This plugin targets theme developers. There are no CSS styles included, because it's meant to get custom templates and styles.
+> Warning: This plugin targets theme developers. There are no CSS styles included, because it's meant to get custom templates and styles.
 
 ## About
 
@@ -32,7 +32,7 @@ To show the listing in frontend you need to create a page [`events.md`](examples
 ├── /03.catering
 ```
 
-! Note that the page folder for the event list could also be on the first hierarchical level. It's only important, that the namin of the page files is correct.
+> Note that the page folder for the event list could also be on the first hierarchical level. It's only important, that the namin of the page files is correct.
 
 There are two important lines for the event details page frontmatter:
 
@@ -48,7 +48,7 @@ The included template for the [event list](templates/events.html.twig) is very s
 
 To avoid writing static routes in config files, the path to the event details page will be the first child page of the page the list is rendered inside. To show event lists in other places, take guidance by the [widget template](templates/flex/events/collection/widget.html.twig).
 
-! This plugin provides translations, also for the form that is included in the page examples. Make sure to customize if the field don't match you requirements.
+> This plugin provides translations, also for the form that is included in the page examples. Make sure to customize if the field don't match you requirements.
 
 ### Modular
 
