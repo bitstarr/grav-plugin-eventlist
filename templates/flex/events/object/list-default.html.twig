@@ -1,0 +1,42 @@
+<article class="event hentry" itemscope itemtype="http://schema.org/Event">
+    <h2 class="event__title" itemprop="name">
+        {%- if object.detailed -%}
+        <a href="{{detailspage}}/{{object.key}}">
+        {%- endif -%}
+        {%- if object.important -%}
+            <strong>{{ object.title }}</strong>
+        {%- elseif object.expected -%}
+            {{ object.title }}
+            <small>({{ 'PLUGIN_EVENTLIST.EXPECTED_DATE'|t }})</small>
+        {%- else -%}
+            {{ object.title }}
+        {%- endif -%}
+        {%- if object.detailed %}
+        {{ svg('arrow-right')|raw }}</a>
+        {%- endif -%}
+    </h2>
+
+    <p class="event__date">
+        {%- set start = object.start -%}
+        {%- if object.end -%}
+            {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_SHORT'|t) }}–{{ object.end|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}
+        {%- elseif object.time -%}
+            {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}, {{ object.time }} {{ 'PLUGIN_EVENTLIST.O_CLOCK'|t }}
+            {%- set start = object.start ~ ' ' ~ object.time ~ ':00' -%}
+        {%- else -%}
+            {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}
+        {%- endif -%}
+        <time itemprop="startDate" datetime="{{ start|date('c') }}" content="{{ start|date('c') }}"></time>
+        {%- if object.end -%}
+        <time itemprop="endDate" datetime="{{ object.end|date('c') }}" content="{{ object.end|date('c') }}"></time>
+        {%- endif -%}
+    </p>
+
+    {%- if object.place -%}
+        <div class="event__location" itemprop="location" itemscope itemtype="http://schema.org/Place">
+            <span class="location" itemprop="name">
+                {{ object.place }}
+            </span>
+        </div>
+    {%- endif -%}
+</article>

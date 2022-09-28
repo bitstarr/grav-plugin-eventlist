@@ -1,0 +1,71 @@
+{% set tpl_body_classes = 't-event' %}
+{% extends 'partials/base.html.twig' %}
+{# {% do assets.addCss('theme://dist/css/job.css', 99) %} #}
+
+{% if page.header.flex.id and page.header.flex.router %}
+    {% set event = grav.get('flex').object( page.header.flex.id, page.header.flex.router )%}
+{% endif %}
+
+{% block content %}
+    <h1 class="headline">
+        {{ event.title }}
+    </h1>
+
+    <div class="modular">
+        <p class="event__date">
+            {%- set start = object.start -%}
+            {%- if object.end -%}
+                {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_SHORT'|t) }}–{{ object.end|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}
+            {%- elseif object.time -%}
+                {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}, {{ object.time }} {{ 'PLUGIN_EVENTLIST.O_CLOCK'|t }}
+                {%- set start = object.start ~ ' ' ~ object.time ~ ':00' -%}
+            {%- else -%}
+                {{ object.start|date('PLUGIN_EVENTLIST.FORMAT_COMPACT'|t) }}
+            {%- endif -%}
+            <time itemprop="startDate" datetime="{{ start|date('c') }}" content="{{ start|date('c') }}"></time>
+            {%- if object.end -%}
+            <time itemprop="endDate" datetime="{{ object.end|date('c') }}" content="{{ object.end|date('c') }}"></time>
+            {%- endif -%}
+            {%- if event.place -%}
+                , {{ event.place }}
+            {%- endif -%}
+        </p>
+    </div>
+
+    <div class="modular textflow">
+        {{ event.description|markdown|raw }}
+    </div>
+
+    {% if event.downloads %}
+    <div class="modular ">
+        <ul>
+        {%~ for item in event.downloads %}
+            {%- set file = event.media[item.name] %}
+            <li>
+                <a href="{{ file.url }}">
+                    {{ svg('file')|raw }}
+                    {{ item.name }}
+                </a>
+            </li>
+        {%~ endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if event.images %}
+    <div class="modular">
+        {% include 'partials/event-details-gallery.html.twig' with { event: event } %}
+    </div>
+    {% endif %}
+
+    {%- if event.signin %}
+        <div class="modular">
+            <div class="textflow">
+                <h2>{{ 'PLUGIN_EVENTLIST.SIGNIN'|t }}</h2>
+                {{ event.signin_hint|markdown|raw }}
+            </div>
+        </div>
+        {% include "forms/form.html.twig" with { form: forms('form'), event: event } %}
+    {%- endif %}
+{% endblock %}
+

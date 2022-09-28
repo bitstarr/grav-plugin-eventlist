@@ -1,12 +1,19 @@
 {%- set object_context = object ?? {} -%}
 {%- set object_layout = object_context.layout ?? ('list-' ~ layout) -%}
 
+{# add url for details page to context #}
+{%- set detailspage = grav.page.collection( { items: { '@self.children': '' } } ) -%}
+{%- if detailspage -%}
+    {%- set object_context = object_context|merge( { 'detailspage': detailspage|first.rawRoute } ) -%}
+{%- endif -%}
 
-  <ul class="list">
-    {% for object in collection.filterBy({ published: true }) %}
-      <li>
-        {# {% render object layout: object_layout with object_context %} #}
-      </li>
+<div class="event__list">
+    {% for object in collection %}
+        {% render object layout: object_layout with object_context %}
     {% endfor %}
-  </ul>
+    {% if collection|length == 0 %}
+        <p class="no-entries">
+            {{ 'PLUGIN_EVENTLIST.NO_EVENTS'|t }}
+        </p>
+    {% endif %}
 </div>

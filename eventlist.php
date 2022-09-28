@@ -110,6 +110,7 @@ class EventlistPlugin extends Plugin
             // Update page.
             $object = $object->jsonSerialize();
             $page->title( $object['title'] );
+            $page->modifyHeader( 'title', $object['title'] );
             $page->modifyHeader( 'flex', $options );
             $page->modifyHeader( 'event', $object );
             $page->slug( $event['path'] );

@@ -16,6 +16,7 @@ license: MIT
 
 dependencies:
   - { name: grav, version: '>=1.6.0' }
+  - { name: flex-objects }
 
 form:
   validation: loose
@@ -30,6 +31,3 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    listpage:
-      type: text
-      label: PLUGIN_EVENTLIST.LIST_PAGE_SLUG

@@ -1,0 +1,13 @@
+{# very simple example, please create a custom template that fits your theme #}
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% set events = grav.get('flex')
+        .collection('events')
+        .forthcoming() %}
+
+    <div class="modular">
+    {% render events %}
+    </div>
+
+{% endblock %}

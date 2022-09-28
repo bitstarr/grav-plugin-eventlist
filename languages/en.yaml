@@ -3,6 +3,7 @@ PLUGIN_EVENTLIST:
   EVENTS: Events
   EVENTLIST: Event List
   NEW_EVENT: New Event
+  NO_EVENTS: Currently there are no events scheduled.
 
   STATUS: Status
   TITLE: Title
@@ -13,11 +14,15 @@ PLUGIN_EVENTLIST:
   HIGHLIGHT: Highlight
   EXPECTED: unconfirmed/not yet fixed
 
-  LIST_PAGE_SLUG: Path to list view page
-
   DETAILS: Details Page
   DETAILS_ON: Enable Details Page
   DETAILS_HELP: Should there be a page with more detailed information?
+  DETAILS_SIGNIN: Show signin form on dtails page
+
+  SIGNIN: Registration Form
+  SHOW_SIGNIN: Show registration form on details page
+  SIGNIN_REQUIREMENTS: Required informationen for registration
+  SIGNIN_REQ_HELP: Which information need the users to supply (availability, number of guest, …)?
 
   DESCRIPTION: Extensive Description
   DOWNLOADS: Downloads
@@ -29,3 +34,16 @@ PLUGIN_EVENTLIST:
 
   EXPECTED_DATE: expected date
   ALL_EVENTS: View all events
+
+  FORM:
+    NAME: Name
+    NAME_PH: Your name
+    EMAIL: Email
+    EMAIL_PH: Your email address
+    SIGNIN_MESSAGE: More Information
+    SIGNIN_MESSAGE_PH: We may need some more information for the registration (see above)
+    SPAM_Q: "Anti-Spam-Question: What's the family name of Albert Einstein?"
+    SPAM_FAIL: You failed the Spam Test.
+    DSGVO: 'I agree with the [Privacy Policy](/privacy).'
+    SUBMIT: Send Request
+    THANKS: Thanks for your interest.

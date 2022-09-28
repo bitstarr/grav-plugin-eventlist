@@ -43,6 +43,7 @@ class EventsCollection extends GenericCollection
         else
         {
             $date = new \DateTime();
+            $date->modify( 'last week' );
         }
 
         $criteria

@@ -221,3 +221,22 @@ form:
           multiple: true
           accept:
           - image/*
+
+    signin:
+      type: section
+      title: PLUGIN_EVENTLIST.SIGNIN
+      underline: true
+      fields:
+        signin:
+          type: toggle
+          label: PLUGIN_EVENTLIST.SHOW_SIGNIN
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.YES
+            0: PLUGIN_ADMIN.NO
+
+        signin_hint:
+          type: editor
+          label: PLUGIN_EVENTLIST.SIGNIN_REQUIREMENTS
+          help: PLUGIN_EVENTLIST.SIGNIN_REQ_HELP

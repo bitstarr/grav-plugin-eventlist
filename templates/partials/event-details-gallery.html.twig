@@ -1,0 +1,28 @@
+{%- set sc_conf = config.plugins['shortcode-gallery'] %}
+{%- set target_width = sc_conf.target_width|default(1920) %}
+{%- set target_height = sc_conf.target_height|default(1080) %}
+{%- set thumb_width = sc_conf.grid.thumb_width|default(250) %}
+{%- set thumb_height = sc_conf.grid.thumb_height|default(250) %}
+<div class="sc-gallery sc-gallery--grid" itemscope itemtype="http://schema.org/ImageGallery">
+    {%~ for image in event.images %}
+        {%- set original_image = event.media[image.name] %}
+        {%- if original_image %}
+            {%- set w = target_width %}
+            {%- set h = target_height %}
+            {#- consider image orientation #}
+            {%- if original_image.height > original_image.width %}
+                {%- set w = target_height %}
+                {%- set h = target_width %}
+            {%- endif %}
+            {%- set href = original_image.cropResize( w, h ).url %}
+
+            <figure class="sc-gallery__figure" role="group" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a href="{{ href }}" class="sc-gallery__link">
+                {{ original_image
+                    .cropZoom( thumb_width, thumb_height )
+                    .loading('lazy').html( null, image.alt, 'sc-gallery__image' )|raw }}
+                </a>
+            </figure>
+        {%- endif %}
+    {%~ endfor %}
+</div>

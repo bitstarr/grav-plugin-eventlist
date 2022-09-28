@@ -1,0 +1,10 @@
+{% set events = grav.get('flex')
+    .collection('events')
+    .forthcoming()
+    .limit( 0, 3 ) %}
+
+<article class="modular">
+
+{% render events layout: 'widget' with { listpage: header.listpage } %}
+
+</article>
