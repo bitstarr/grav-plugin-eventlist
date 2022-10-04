@@ -71,7 +71,7 @@ config:
     edit:
       icon: fa-calendar-o
       title:
-        template: '{{ object.title ?? ''PLUGIN_EVENTLIST.NEW_EVENT'' }}'
+        template: '{{ object.title ?? ''PLUGIN_EVENTLIST.NEW_EVENT''|tu }}'
 
     # Preview View
     preview:
