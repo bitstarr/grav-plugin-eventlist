@@ -160,16 +160,19 @@ form:
     start:
       type: date
       label: PLUGIN_EVENTLIST.DATE_START
+      size: small
       validate:
         required: true
 
     time:
       type: time
       label: PLUGIN_EVENTLIST.TIME
+      size: small
 
     end:
       type: date
       label: PLUGIN_EVENTLIST.DATE_END
+      size: small
 
     place:
       type: text
