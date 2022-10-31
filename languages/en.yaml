@@ -4,6 +4,7 @@ PLUGIN_EVENTLIST:
   EVENTLIST: Event List
   NEW_EVENT: New Event
   NO_EVENTS: Currently there are no events scheduled.
+  FORTHCOMING_EVENTS: Forthcoming Events
 
   STATUS: Status
   TITLE: Title
@@ -17,7 +18,6 @@ PLUGIN_EVENTLIST:
   DETAILS: Details Page
   DETAILS_ON: Enable Details Page
   DETAILS_HELP: Should there be a page with more detailed information?
-  DETAILS_SIGNIN: Show signin form on dtails page
 
   SIGNIN: Registration Form
   SHOW_SIGNIN: Show registration form on details page

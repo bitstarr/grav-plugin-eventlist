@@ -4,6 +4,7 @@ PLUGIN_EVENTLIST:
   EVENTLIST: Terminliste
   NEW_EVENT: Neuer Termin
   NO_EVENTS: Aktuell sind keine Termine veröffentlicht.
+  FORTHCOMING_EVENTS: Anstehende Termine
 
   STATUS: Status
   TITLE: Titel

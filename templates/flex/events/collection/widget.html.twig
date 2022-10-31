@@ -1,15 +1,20 @@
 {%- if collection|length > 0 -%}
 <div class="events__widget">
+    <h2 class="modular__title ew__title">
+        {{ 'PLUGIN_EVENTLIST.FORTHCOMING_EVENTS'|t }}
+    </h2>
+    <div class="ew__list">
     {% for object in collection.filterBy({ published: true }) %}
         {% render object layout: 'widget' %}
     {% endfor %}
+    </div>
 
     {%- set query = { items: { '@page.page': listpage } } -%}
     {%- set listpage = grav.page.collection( query ) -%}
     {%- if listpage|first -%}
-    <p>
+    <p class="ew__callout">
         <a href="{{ listpage|first.url }}">
-            {{ 'PLUGIN_EVENTLIST.ALL_EVENTS'|t }}
+            {{ 'PLUGIN_EVENTLIST.ALL_EVENTS'|t }} {{ svg('arrow-right')|raw }}
         </a>
     </p>
     {%- endif -%}
