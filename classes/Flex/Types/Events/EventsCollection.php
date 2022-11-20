@@ -48,8 +48,23 @@ class EventsCollection extends GenericCollection
 
         $criteria
             ->andWhere( $expr->eq( 'published', true ) )
+            ->andWhere( $expr->eq( 'repeating', false ) )
             ->andWhere( $expr->gte( 'start', $date->format("Y-m-d") ) )
             ->orderBy( [ 'start' => Criteria::ASC ] );
+
+        return $this->matching( $criteria );
+    }
+
+    // custom filter to get repeating events
+    public function repeating( ): EventsCollection
+    {
+        $expr = Criteria::expr();
+        $criteria = Criteria::create();
+        // https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/expressions.html#orwhere
+
+        $criteria
+            ->andWhere( $expr->eq( 'published', true ) )
+            ->andWhere( $expr->eq( 'repeating', true ) );
 
         return $this->matching( $criteria );
     }

@@ -15,6 +15,11 @@ PLUGIN_EVENTLIST:
   HIGHLIGHT: Highlight
   EXPECTED: unconfirmed/not yet fixed
 
+  REPEATING: Repetition
+  IS_REPEATING: Event is repeating
+  REPEATING_DESC: Repetition Interval
+  REPEATING_DESC_HELP: e.g. every Monday, first Sunday in month
+
   DETAILS: Details Page
   DETAILS_ON: Enable Details Page
   DETAILS_HELP: Should there be a page with more detailed information?

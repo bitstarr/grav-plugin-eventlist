@@ -48,6 +48,11 @@ config:
             width: 12
           title:
             link: edit
+          repeating:
+            field:
+              type: toggle
+              label: PLUGIN_EVENTLIST.REPEATING
+            width: 8
         options:
           per_page: 30
           order:
@@ -186,6 +191,26 @@ form:
       type: switch
       label: PLUGIN_EVENTLIST.EXPECTED
 
+    reiterating:
+      type: section
+      title: PLUGIN_EVENTLIST.REPEATING
+      underline: true
+      fields:
+        repeating:
+          type: toggle
+          label: PLUGIN_EVENTLIST.IS_REPEATING
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.YES
+            0: PLUGIN_ADMIN.NO
+          validate:
+            type: bool
+
+        repeating_date:
+          type: text
+          label: PLUGIN_EVENTLIST.REPEATING_DESC
+          help: PLUGIN_EVENTLIST.REPEATING_DESC_HELP
 
     details:
       type: section

@@ -15,6 +15,11 @@ PLUGIN_EVENTLIST:
   HIGHLIGHT: Hervorheben
   EXPECTED: Unbestätigt/noch nicht fixiert
 
+  REPEATING: Wiederholdung
+  IS_REPEATING: Termin wiederholt sich
+  REPEATING_DESC: Wiederholungsintervall
+  REPEATING_DESC_HELP: z.B. jeden Montag, 1. Sonntag im Monat
+
   DETAILS: Detailseite
   DETAILS_ON: Detailseite aktivieren
   DETAILS_HELP: Soll es eine Seite mit mehr Details geben?

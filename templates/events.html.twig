@@ -2,12 +2,31 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    {% set events = grav.get('flex')
+    {%- set events = grav.get('flex')
         .collection('events')
-        .forthcoming() %}
+        .forthcoming() -%}
 
+    {%- if events|length %}
     <div class="modular">
     {% render events %}
     </div>
+    {% endif -%}
 
+    {%- set repeating = grav.get('flex')
+        .collection('events')
+        .repeating() -%}
+
+    {%- if repeating|length %}
+    <div class="modular">
+        {% render repeating layout: 'repeating' %}
+    </div>
+    {% endif -%}
+
+    {%- if events|length == 0 and repeating|length == 0 %}
+        <div class="modular">
+            <p class="no-entries">
+                {{ 'PLUGIN_EVENTLIST.NO_EVENTS'|t }}
+            </p>
+        </div>
+    {% endif -%}
 {% endblock %}
