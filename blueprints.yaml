@@ -1,7 +1,7 @@
 name: Eventlist
 slug: eventlist
 type: plugin
-version: 0.1.0
+version: 0.1.1
 description: Flex Object based event listing
 icon: plug
 author:
