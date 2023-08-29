@@ -73,6 +73,19 @@ You should now have all the plugin files under
 > NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/bitstarr/grav-plugin-eventlist/blob/master/blueprints.yaml).
 
 
+### Installation as dependency (skeleton)
+
+If you don't know this method already, check out this [example of a dependecies file](https://github.com/bitstarr/sebastianlaube/blob/main/user/.dependencies). It can hold all (external) plugins and themes you require to run your project. When running `bin/grav install` all these will get downloaded and correctly placed automatically.
+
+Add the following to your `.dependecies` file:
+
+```
+    eventlist:
+        url: https://github.com/bitstarr/grap-plugin-eventlist
+        path: user/plugins/eventlist
+        branch: main
+```
+
 ## Configuration
 
 Before configuring this plugin, you should copy the `user/plugins/eventlist/eventlist.yaml` to `user/config/plugins/eventlist.yaml` and only edit that copy.
