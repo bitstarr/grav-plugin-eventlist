@@ -40,6 +40,11 @@ PLUGIN_EVENTLIST:
   EXPECTED_DATE: expected date
   ALL_EVENTS: View all events
 
+  LIST_PAGE_NOP: This page displays the overview of events. There is nothing to configure.
+  DETAIL_PAGE_NOP: The details of an event are displayed on this page. There is nothing to configure.
+  LIST_MODULAR_NOP: The overview of dates is displayed here.
+  LIST_MODULAR_SELECT: Page with the schedule
+
   FORM:
     NAME: Name
     NAME_PH: Your name

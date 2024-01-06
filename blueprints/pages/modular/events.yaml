@@ -1,0 +1,42 @@
+title: Events List Modular
+extends@:
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        system:
+          type: tab
+          title: PLUGIN_EVENTLIST.EVENTS
+          ordering@: -2
+          fields:
+            hint:
+              type: section
+              title: PLUGIN_EVENTLIST.LIST_MODULAR_NOP
+            header.listpage:
+              type: pages
+              label: PLUGIN_EVENTLIST.LIST_MODULAR_SELECT
+              size: medium
+              show_all: false
+              show_modular: false
+              show_root: false
+        content:
+          unset@: true
+        options:
+          unset@: true
+        advanced:
+          fields:
+            overrides:
+              security: admin.super
+            routes_only:
+              security: admin.super
+            admin_only:
+              security: admin.super
+        security:
+          fields:
+          _site:
+            unset@: true
+          _admin:
+            unset@: true

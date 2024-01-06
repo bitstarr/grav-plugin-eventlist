@@ -1,0 +1,35 @@
+title: Event Detail Page
+extends@:
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        system:
+          type: tab
+          title: PLUGIN_EVENTLIST.EVENTS
+          ordering@: -2
+          fields:
+            hint:
+              type: section
+              title: PLUGIN_EVENTLIST.DETAIL_PAGE_NOP
+        content:
+          unset@: true
+        options:
+          unset@: true
+        advanced:
+          fields:
+            overrides:
+              security: admin.super
+            routes_only:
+              security: admin.super
+            admin_only:
+              security: admin.super
+        security:
+          fields:
+          _site:
+            unset@: true
+          _admin:
+            unset@: true

@@ -40,6 +40,11 @@ PLUGIN_EVENTLIST:
   EXPECTED_DATE: voraussichtlicher Termin
   ALL_EVENTS: Alle Termine ansehen
 
+  LIST_PAGE_NOP: Auf dieser Seite wird die Übersicht der Termine angezeigt. Es gibt nichts zu konfigurieren.
+  DETAIL_PAGE_NOP: Auf dieser Seite werden die Details eines Termins angezeigt. Es gibt nichts zu konfigurieren.
+  LIST_MODULAR_NOP: An dieser Stelle wird die Übersicht der Termine angezeigt.
+  LIST_MODULAR_SELECT: Seite mit der Terminübersicht
+
   FORM:
     NAME: Name
     NAME_PH: Ihr Name
